@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Courses</title></head>
+<body>
+  <h1>Courses</h1>
+  <ul id="courseList"></ul>
+  <script>
+    fetch("http://localhost:5000/api/courses", {
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      const ul = document.getElementById("courseList");
+      data.forEach(course => {
+        const li = document.createElement("li");
+        li.textContent = course.title;
+        ul.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>

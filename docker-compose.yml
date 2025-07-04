@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: your-rds-endpoint
+      DB_USER: youruser
+      DB_PASS: yourpass
+      DB_NAME: yourdb
+      JWT_SECRET: your-super-secret-key
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
