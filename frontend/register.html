@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head><title>Register</title></head>
+<head>
+  <title>Register</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-  <h2>Register</h2>
-  <input id="name" placeholder="Name">
-  <input id="mobile" placeholder="Mobile">
-  <input id="email" placeholder="Email">
-  <input id="password" type="password" placeholder="Password">
-  <button onclick="register()">Register</button>
+  <header>
+    <h1>Register</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <form>
+    <input id="name" placeholder="Name">
+    <input id="mobile" placeholder="Mobile">
+    <input id="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
+    <button type="button" onclick="register()">Register</button>
+  </form>
+
+  <footer>
+    <p>📍 Address: Bengaluru, India | ✉️ contact@course-site.com</p>
+  </footer>
+
   <script>
     function register() {
       fetch("http://localhost:5000/api/auth/register", {

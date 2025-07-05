@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head><title>Courses</title></head>
+<head>
+  <title>Courses</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-  <h1>Courses</h1>
-  <ul id="courseList"></ul>
+  <header>
+    <h1>My Course Site</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <div class="card">
+    <h2>Available Courses</h2>
+    <ul id="courseList"></ul>
+  </div>
+
+  <footer>
+    <p>📍 Address: Bengaluru, India | ✉️ contact@course-site.com</p>
+  </footer>
+
   <script>
     fetch("http://localhost:5000/api/courses", {
-      headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      }
+      headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
     })
     .then(res => res.json())
     .then(data => {
