@@ -10,17 +10,17 @@
     <h1>Register</h1>
     <nav>
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="support.html">Support</a>
+      <a href="register.html">Register</a>
+      <a href="login.html">Login</a>
     </nav>
   </header>
 
-  <form>
-    <input id="name" placeholder="Name">
-    <input id="mobile" placeholder="Mobile">
-    <input id="email" placeholder="Email">
-    <input id="password" type="password" placeholder="Password">
-    <button type="button" onclick="register()">Register</button>
+  <form id="registerForm">
+    <input id="name" placeholder="Name" required>
+    <input id="mobile" placeholder="Mobile" required>
+    <input id="email" type="email" placeholder="Email" required>
+    <input id="password" type="password" placeholder="Password" required>
+    <button type="submit">Register</button>
   </form>
 
   <footer>
@@ -28,7 +28,8 @@
   </footer>
 
   <script>
-    function register() {
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
       fetch("http://localhost:5000/api/auth/register", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
@@ -41,7 +42,7 @@
       })
       .then(res => res.json())
       .then(() => window.location.href = '/login.html');
-    }
+    });
   </script>
 </body>
 </html>
